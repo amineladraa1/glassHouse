@@ -1,9 +1,11 @@
-import {combineReducers} from 'redux'
+import { combineReducers } from 'redux';
 
-import formData from './formData'
+import formData from './formData';
+import PostReducer from './PostReducer';
+import userReducer from './UserReducer';
 
-export default combineReducers(
-    {
-        formData,
-    }
-);
+export default combineReducers({
+  formData,
+  PostReducer,
+  userReducer,
+});

@@ -1,9 +1,12 @@
-import { AppBar, Avatar, IconButton, Toolbar } from "@material-ui/core";
-import React, { useState } from "react";
-import { useStyles } from "./Style";
-import AppBarMenu from "./Menus/AppBarMenu";
+import { AppBar, Avatar, IconButton, Toolbar } from '@material-ui/core';
+import React, { useState } from 'react';
+import { useStyles } from './Style';
+import AppBarMenu from './Menus/AppBarMenu';
+import { useSelector } from 'react-redux';
 
 function Appbar() {
+  const user = useSelector((state) => state.user);
+  console.log(user);
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const [anchorEl2, setAnchorEl2] = useState(null);
@@ -38,14 +41,14 @@ function Appbar() {
             handleClose2={handleClose2}
             anchorEl2={anchorEl2}
           />
-          <IconButton style={{ color: "white", padding: "1px" }}>
+          <IconButton style={{ color: 'white', padding: '1px' }}>
             <p
               className={classes.Paragraph}
-              style={{ fontSize: "20px", paddingRight: "5px" }}
+              style={{ fontSize: '20px', paddingRight: '5px' }}
             >
-              profile
+              {/* {user.userName} */}
             </p>
-            <Avatar src="https://demos.creative-tim.com/nextjs-material-kit-pro/_next/static/images/kendall-5a0e395b3b76565583339619ca3110f4.jpg" />
+            {/* <Avatar src={user.profilePic} /> */}
           </IconButton>
         </Toolbar>
       </AppBar>
