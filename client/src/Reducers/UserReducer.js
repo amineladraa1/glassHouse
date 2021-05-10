@@ -1,22 +1,16 @@
-const initialState = {
-  name: '',
-  email: '',
-  password: '',
-  userName: '',
-  bio: '',
-  phoneNumber: '',
-  BirthDate: '',
-  city: '',
-  profilePic: '',
-};
-
-export default (user = initialState, action) => {
+const userReducer = (state = { authData: null }, action) => {
   switch (action.type) {
-    case 'SIGNUP':
-      return action.payload;
-    case 'SIGNIN':
-      return action.payload;
+    case 'Auth':
+      localStorage.setItem('profile', JSON.stringify({ ...action?.data }));
+      return { ...state, authData: action?.data };
+    case 'LOGOUT':
+      localStorage.clear();
+
+      return { ...state, authData: null };
+
     default:
-      return user;
+      return state;
   }
 };
+
+export default userReducer;

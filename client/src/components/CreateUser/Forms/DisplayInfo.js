@@ -11,6 +11,7 @@ import {
 } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
 import { signUpAction } from '../../../Actions/userActions';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -37,6 +38,7 @@ const ArtistInfoArray = [
 
 function DisplayInfo({ handleBack }) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const dataForm = useSelector((state) => state.formData);
   // console.log(data);
   const classes = useStyles();
@@ -46,7 +48,7 @@ function DisplayInfo({ handleBack }) {
   );
   const sendData = (dataForm) => {
     console.log(dataForm);
-    dispatch(signUpAction(dataForm));
+    dispatch(signUpAction(dataForm, history));
   };
   return (
     <div>

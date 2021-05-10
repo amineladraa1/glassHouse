@@ -2,11 +2,8 @@ import { AppBar, Avatar, IconButton, Toolbar } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useStyles } from './Style';
 import AppBarMenu from './Menus/AppBarMenu';
-import { useSelector } from 'react-redux';
 
-function Appbar() {
-  const user = useSelector((state) => state.user);
-  console.log(user);
+function Appbar({ user }) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const [anchorEl2, setAnchorEl2] = useState(null);
@@ -46,9 +43,9 @@ function Appbar() {
               className={classes.Paragraph}
               style={{ fontSize: '20px', paddingRight: '5px' }}
             >
-              {/* {user.userName} */}
+              {user.userName}
             </p>
-            {/* <Avatar src={user.profilePic} /> */}
+            <Avatar src={user.profilePic} />
           </IconButton>
         </Toolbar>
       </AppBar>

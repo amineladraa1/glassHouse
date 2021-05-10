@@ -18,6 +18,7 @@ import React, { useState } from 'react';
 import { useStyles } from './Style';
 import { useDispatch } from 'react-redux';
 import { signInAction } from '../../../Actions/userActions';
+import { useHistory } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
 // import Alert from '@material-ui/lab/Alert';
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -25,6 +26,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 function SignInModal({ handleCloseModel, openModel }) {
+  const history = useHistory();
   const dispatch = useDispatch();
   const classes = useStyles();
   const [showPassword, setShowPassword] = useState(false);
@@ -37,7 +39,7 @@ function SignInModal({ handleCloseModel, openModel }) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(signInAction(form));
+    dispatch(signInAction(form, history));
   };
 
   return (
