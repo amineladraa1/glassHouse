@@ -15,7 +15,7 @@ export const signInAction = (form, history) => async (dispatch) => {
     history.push('/feed');
     dispatch({ type: 'Auth', data });
   } catch (error) {
-    console.log(error.response.data);
+    console.log(error.response);
   }
 };
 

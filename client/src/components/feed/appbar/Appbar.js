@@ -8,9 +8,14 @@ import Popper from '@material-ui/core/Popper';
 import React, { useState } from 'react';
 import AppBarMenu from './Menus/AppBarMenu';
 import { useStyles } from './Style';
+import { useDispatch } from 'react-redux';
+import { logoutAction } from '../../../Actions/userActions';
+import { useHistory } from 'react-router-dom';
 
 function Appbar({ user }) {
   const classes = useStyles();
+  const history = useHistory();
+  const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = useState(null);
   const [anchorEl2, setAnchorEl2] = useState(null);
   const [isMessages, setIsMessages] = useState(true);
@@ -27,6 +32,14 @@ function Appbar({ user }) {
     }
 
     setOpen(false);
+  };
+  const handleCloseLogout = (event) => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+
+    setOpen(false);
+    dispatch(logoutAction(history));
   };
 
   function handleListKeyDown(event) {
@@ -121,7 +134,7 @@ function Appbar({ user }) {
                     >
                       <MenuItem onClick={handleClose3}>Profile</MenuItem>
                       <MenuItem onClick={handleClose3}>My account</MenuItem>
-                      <MenuItem onClick={handleClose3}>Logout</MenuItem>
+                      <MenuItem onClick={handleCloseLogout}>Logout</MenuItem>
                     </MenuList>
                   </ClickAwayListener>
                 </Paper>
