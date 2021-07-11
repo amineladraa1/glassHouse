@@ -10,7 +10,7 @@ function Feed() {
   const [user, setuser] = useState(JSON.parse(localStorage.getItem('profile')));
   useEffect(() => {
     dispatch(getPosts());
-  }, [dispatch]);
+  }, []);
   return (
     <div style={{ padding: '1px' }}>
       <Appbar user={user} />

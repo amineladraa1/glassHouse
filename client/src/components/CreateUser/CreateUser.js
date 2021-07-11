@@ -106,17 +106,7 @@ function CreateUser() {
             <div className = {classes.container}>
             <Typography className={classes.instructions}>{getStepContent(activeStep ,handleNext ,handleBack )}</Typography>
             <div>
-              {/* <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
-                Back
-              </Button>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleNext}
-                className={classes.button}
-              >
-                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-              </Button> */}
+         
             </div>
           </div>
         </div>

@@ -53,6 +53,7 @@ function PostCard({ post }) {
       justify='center'
       alignItems='center'
       className={classes.root}
+      style={{ marginBottom: '30px' }}
     >
       <CardHeader
         avatar={
